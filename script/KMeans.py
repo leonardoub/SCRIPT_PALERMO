@@ -22,6 +22,7 @@ label = df.loc[:, 'OS']
 label = [i.replace('+di4anni', '5') for i in label]
 label = [i.replace('_anni', '') for i in label]
 label = [i.replace('_anno', '') for i in label]
+label = [int(i) for i in label]
 
 
 #STADARDIZATION
@@ -34,11 +35,18 @@ reducer = pca.fit(data_n)
 data_n_reduced=reducer.transform(data_n)  
 
 
-km = KMeans()
+km = KMeans(n_clusters=5, init='random', n_init=10, max_iter=300,
+            tol=1e-04, random_state=0)
+
+
+#SONO LA STESSA COSA
+y_km = km.fit_predict(data_n)
+a=km.labels_
+        
 
 
 
-
+C = A-y_km
 
 
 
