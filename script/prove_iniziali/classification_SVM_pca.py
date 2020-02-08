@@ -15,6 +15,7 @@ import pandas as pd
 from sklearn.decomposition import PCA
 from sklearn.model_selection import cross_val_score, GridSearchCV, ParameterGrid, train_test_split
 from sklearn.svm import SVC
+import matplotlib.pyplot as plt
 
 
 
@@ -44,7 +45,7 @@ X_train_n_reduced = reducer.transform(X_train_n)
 X_test_n_reduced = reducer.transform(X_test_n)
 
 
-clf=SVC(C=1, kernel='rbf', gamma=0.1)
+clf=SVC(C=2, kernel='rbf', gamma=0.1)
 clf.fit(X_train_n_reduced,Y_train)
 Y_test_pred=clf.predict(X_test_n_reduced)
 Y_train_pred=clf.predict(X_train_n_reduced)
