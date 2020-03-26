@@ -23,12 +23,12 @@ for name in glob.glob(path):
     MAE_test_std = data['MAE_test'].std()
 
 
-    df_train_MAE_mean = pd.DataFrame([{'accuracy_train_mean':MAE_train_mean}])
-    df_train_MAE_std = pd.DataFrame([{'accuracy_train_std':MAE_train_std}])
+    df_train_MAE_mean = pd.DataFrame([{'MAE_train_mean':MAE_train_mean}])
+    df_train_MAE_std = pd.DataFrame([{'MAE_train_std':MAE_train_std}])
 
     
-    df_test_MAE_mean = pd.DataFrame([{'accuracy_test_mean':MAE_test_mean}])
-    df_test_MAE_std = pd.DataFrame([{'accuracy_test_std':MAE_test_std}])
+    df_test_MAE_mean = pd.DataFrame([{'MAE_test_mean':MAE_test_mean}])
+    df_test_MAE_std = pd.DataFrame([{'MAE_test_std':MAE_test_std}])
 
 
     df = pd.concat([data, df_train_MAE_mean, df_train_MAE_std, df_test_MAE_mean, df_test_MAE_std], axis=1)

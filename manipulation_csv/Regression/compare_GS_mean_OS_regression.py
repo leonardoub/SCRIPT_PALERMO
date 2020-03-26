@@ -25,18 +25,18 @@ for name in sorted(glob.glob(path)):
     print(name)
     data = pd.read_csv(name) 
     clf = os.path.split(name)[-1]
-    clf = clf[12:-17]
-    my_dict['MAE_TRAIN_MEAN'].append(data['accuracy_train_mean'][0])
-    my_dict['MAE_TRAIN_STD'].append(data['accuracy_train_std'][0])
-    my_dict['MAE_TEST_MEAN'].append(data['accuracy_test_mean'][0])
-    my_dict['MAE_TEST_STD'].append(data['accuracy_test_std'][0])
+    clf = clf[12:-18]
+    my_dict['MAE_TRAIN_MEAN'].append(data['MAE_train_mean'][0])
+    my_dict['MAE_TRAIN_STD'].append(data['MAE_train_std'][0])
+    my_dict['MAE_TEST_MEAN'].append(data['MAE_test_mean'][0])
+    my_dict['MAE_TEST_STD'].append(data['MAE_test_std'][0])
     clf_list.append(clf)
 
 
 
 df = pd.DataFrame(my_dict, index=clf_list)
 
-df.to_csv('/home/leonardo/Scrivania/result_CV/compare_GS_OS_regression.csv')
+df.to_csv('/home/leonardo/Scrivania/result_CV/regression_OS/Public/compare_GS_OS_regression.csv')
 
 
 
